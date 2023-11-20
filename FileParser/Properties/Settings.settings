@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FileParser.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="basepath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\temp</Value>
+    </Setting>
+    <Setting Name="doubles_file_name" Type="System.String" Scope="User">
+      <Value Profile="(Default)">doubles.csv</Value>
+    </Setting>
+    <Setting Name="uuid_json_get_vendors_cache" Type="System.String" Scope="User">
+      <Value Profile="(Default)">uuid_json.json</Value>
+    </Setting>
+    <Setting Name="Site_Price_cache_path" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Site_Price_cache_path.json</Value>
+    </Setting>
+    <Setting Name="remote_usage" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MP_file" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MP_Goods.csv</Value>
+    </Setting>
+    <Setting Name="fullpaths_csv" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fullpaths.csv</Value>
+    </Setting>
+    <Setting Name="names_csv" Type="System.String" Scope="User">
+      <Value Profile="(Default)">names.csv</Value>
+    </Setting>
+    <Setting Name="chDwlOnLd" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
