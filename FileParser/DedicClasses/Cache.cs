@@ -171,33 +171,6 @@ namespace FileParser
 
         }
         //Загружает в папку Папка_Контент_Отдела данные из удаленного сервера  
-        public static async void dwlContentInternalFld(bool notify = true) {
-            List<string> urlList = new List<string>();
-            // выводим список брендов группы А
-            System.Collections.Specialized.StringCollection coll = Properties.Settings.Default.voronkaFiles;
-
-            foreach (string file in coll) {
-                urlList.Add(file);
-            }
-
-            string[] urlList_arr = urlList.ToArray();
-
-            await Task.Run( () =>
-            { 
-                    saveUrls(urlList_arr, "Внутренняя папка отдела контента", false);
-
-            });
-
-            if (notify)
-            {
-                DialogResult result = MessageBox.Show("Открыть местоположение файлов?", "Внутренние файлы отдела контента обновлены", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                    //Process.Start(new ProcessStartInfo { FileName = "explorer", Arguments = $"/n,/select,{ Properties.Settings.Default.basepath + @"\" + Properties.Settings.Default.exportbuyall_csv}" });
-                    WinActions.OpenRes(Properties.Settings.Default.basepath + @"\Внутренняя папка отдела контента");
-                }
-                else { }
-            }
-        }
+       
     }
 }

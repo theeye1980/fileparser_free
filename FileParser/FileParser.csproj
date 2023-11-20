@@ -93,11 +93,8 @@
     <Compile Include="DedicClasses\Cache.cs" />
     <Compile Include="Class2.cs" />
     <Compile Include="DedicClasses\converters.cs" />
-    <Compile Include="DedicClasses\excel_getter.cs" />
     <Compile Include="DedicClasses\FileInfoGetter.cs" />
     <Compile Include="DedicClasses\FileSaver.cs" />
-    <Compile Include="DedicClasses\GetArticlesList.cs" />
-    <Compile Include="DedicClasses\knocker.cs" />
     <Compile Include="DedicClasses\usefull.cs" />
     <Compile Include="DedicClasses\WinActions.cs" />
     <Compile Include="DedicClasses\json.cs" />
@@ -131,7 +128,6 @@
     <Compile Include="Forms\MassRenamer.Designer.cs">
       <DependentUpon>MassRenamer.cs</DependentUpon>
     </Compile>
-    <Compile Include="DedicClasses\GridHandler.cs" />
     <Compile Include="Forms\URLExtractor.cs">
       <SubType>Form</SubType>
     </Compile>

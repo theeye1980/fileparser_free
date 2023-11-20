@@ -55,7 +55,7 @@ namespace FileParser
         private void button2_Click(object sender, EventArgs e)
         {
             // Вставляем защиту - нескомпилированное приложение перестанет работать с 1 февраля
-            DateTime date1 = new DateTime(2024, 9, 16); // до этого дня все еще будет работать
+            DateTime date1 = new DateTime(2026, 9, 16); // до этого дня все еще будет работать
             var periodNow = DateTime.Now;
             if (periodNow < date1)
             {
@@ -124,30 +124,8 @@ namespace FileParser
         private void Form1_Load(object sender, EventArgs e)
         {
             if (Properties.Settings.Default.chDwlOnLd) {  //проводим загрузку файлов, если установлен чекбокс
-                try
-                {
-                    // папка все о товаре недоступна if (!Properties.Settings.Default.remote_usage) FileInfoGetter.ScanAllAboutGoodFld(false);
-                    FileInfoGetter.ScanAllAboutGoodFldRemote();
-                }
-                catch (Exception ex) { MessageBox.Show("Ошибка при сканировании файлов" + ex.Message); }
-
-                try { 
-                    //reports.FormFileReportv2_parallel(false);
-                    GetArticlesList.GetAllArticles1C(false);
-               
-                } catch { MessageBox.Show("Ошибка при загрузке артикулов 1С"); }
                 
-                try
-                {
-                    //Временно выключаем возможность получить информацию по моделям
-                   // MLModelsGetter.IsTorchGetInfo(false);
-                } catch { MessageBox.Show("Ошибка при получении информации моделей машинного обучения"); }
-
-                try {
-
-                    Cache.dwlContentInternalFld();
-
-                } catch (Exception ex) { MessageBox.Show("Не удалось сохранить файлы отдела Контента" + ex.Message); }
+                
             }
 
             if (Properties.Settings.Default.remote_usage)
@@ -242,14 +220,12 @@ namespace FileParser
         private void записатьНовыйTempofarticlesToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            GetArticlesList.GetAllArticles1C();
 
         }
 
         private void обновитьФайлыВсеОТовареToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FileInfoGetter.ScanAllAboutGoodFld();
-            MessageBox.Show("Скан запущен, займет примерно минуту. По мере готовности выскочит уведомление.");
+            
         }
 
         private void данныеПоФайламартикулыToolStripMenuItem_Click(object sender, EventArgs e)
@@ -314,7 +290,6 @@ namespace FileParser
 
         private void загрузитьФайлыОтделаКонтентаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Cache.dwlContentInternalFld();
         }
 
         private void pNG300x300ИзПапкиToolStripMenuItem_Click(object sender, EventArgs e)

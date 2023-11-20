@@ -226,53 +226,6 @@ namespace FileParser.DedicClasses
 
 
         }
-        public static void jpgTo224(string jpegFilePath)
-        {
-
-            // Create a new folder for the PNG files
-            string miniphotobank_path = Properties.Settings.Default.miniphotobank_path;
-           
-            
-                // Load the JPEG image
-                using (Image image = Image.FromFile(jpegFilePath))
-                {
-                    // Calculate the new size while maintaining the aspect ratio
-                    int width, height;
-                    if (image.Width > image.Height)
-                    {
-                        width = 224;
-                        height = (int)(image.Height * (224.0 / image.Width));
-                    }
-                    else
-                    {
-                        height = 224;
-                        width = (int)(image.Width * (224.0 / image.Height));
-                    }
-
-                    // Create a new bitmap with a white background and the new size
-                    using (Bitmap bitmap = new Bitmap(224, 224))
-                    {
-                        using (Graphics graphics = Graphics.FromImage(bitmap))
-                        {
-                            graphics.Clear(Color.White);
-
-                            // Calculate the coordinates to center the image
-                            int x = (224 - width) / 2;
-                            int y = (224 - height) / 2;
-
-                            // Draw the JPEG image onto the bitmap
-                            graphics.DrawImage(image, x, y, width, height);
-                        }
-
-                        // Save the bitmap as a PNG file with the same name in the new folder
-                        string pngFilePath = Path.Combine(miniphotobank_path, Path.GetFileNameWithoutExtension(jpegFilePath) + ".jpg");
-                        bitmap.Save(pngFilePath, ImageFormat.Jpeg);
-                    }
-                }
-            
-
-
-
-        }
+       
     }
 }

@@ -12,18 +12,7 @@ namespace FileParser
             InitializeComponent();
             string base_out_path = Properties.Settings.Default.basepath;
 
-            //устанавливаем опцию
-            if (Properties.Settings.Default.remote_usage)
-            {
-                chBxRemote.Checked = true;
-            }
-
-            //устанавливаем опцию
-            if (Properties.Settings.Default.chDwlOnLd)
-            {
-                chDwlOnLd.Checked = true;
-            }
-
+            
             
             textBox1.Text = base_out_path;
             
@@ -31,26 +20,9 @@ namespace FileParser
             { //Directory.Delete(base_out_path, true);
                 Directory.CreateDirectory(base_out_path);
             }
-            // выводим список брендов группы А
-            System.Collections.Specialized.StringCollection coll = Properties.Settings.Default.typeA_brands;
-            foreach (var item in coll)
-            {
-                Console.WriteLine(item);
-                
-            }
-            //Выводим список брендов игнорирования
-            System.Collections.Specialized.StringCollection coll1 = Properties.Settings.Default.ignore_brands;
-            foreach (var item in coll1)
-            {
-                Console.WriteLine(item);
-                
-            }
+            
 
-            //Устанавливаем путь к "Все о товаре"
-
-            textBox3.Text = Properties.Settings.Default.all_about_products_path;
-            //Устанавливаем путь к "Все о товаре"
-            textBox2.Text = Properties.Settings.Default.miniphotobank_path;
+            
 
         }
 
@@ -113,15 +85,13 @@ namespace FileParser
         private void chBxRemote_CheckedChanged(object sender, EventArgs e)
         {
 
-            Properties.Settings.Default.remote_usage = chBxRemote.Checked;
-            Properties.Settings.Default.Save();
+           
         }
 
         private void chDwlOnLd_CheckedChanged(object sender, EventArgs e)
         {
 
-            Properties.Settings.Default.chDwlOnLd = chDwlOnLd.Checked;
-            Properties.Settings.Default.Save();
+            
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -142,8 +112,7 @@ namespace FileParser
 
         private void button2_Click1(object sender, EventArgs e)
         {
-            Properties.Settings.Default.miniphotobank_path = textBox2.Text;
-            Properties.Settings.Default.Save();
+            
         }
 
         private void button2_Click_2(object sender, EventArgs e)
