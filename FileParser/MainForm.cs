@@ -28,6 +28,8 @@ namespace FileParser
         {
             InitializeComponent();
             //InitializeTimer();
+            //Создаем папку с выходными данными, если еще не создана
+
         }
 
         
@@ -105,16 +107,14 @@ namespace FileParser
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.chDwlOnLd) {  //проводим загрузку файлов, если установлен чекбокс
-                
-                
-            }
-
-            if (Properties.Settings.Default.remote_usage)
+            if (!Directory.Exists(Properties.Settings.Default.basepath))
             {
-                //убираем возможности удаленного пользователя
-                
-                
+                Directory.CreateDirectory(Properties.Settings.Default.basepath);
+                Console.WriteLine("Folder created successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Folder already exists.");
             }
         }
         private void Form1_Closing(object sender, EventArgs e)
