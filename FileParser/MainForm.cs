@@ -178,10 +178,13 @@ namespace FileParser
             Process.Start(new ProcessStartInfo { FileName = "explorer", Arguments = $"/n,/select,{Properties.Settings.Default.basepath}" });
         }
 
-
-
-       
-
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form about = new About
+            {
+                Visible = true
+            };
+        }
     }
 
 }

@@ -46,7 +46,7 @@ namespace FileParser
             try
             {
                 OpenFileDialog OPF = new OpenFileDialog();
-                OPF.Filter = "xml files (*.xml)|*.xml|yml (*.yml)|*.yml";
+                OPF.Filter = "XML and YML files (*.xml;*.yml)|*.xml;*.yml";
                 if (OPF.ShowDialog() == DialogResult.OK)
                 {
                     this.textBox1.Text = OPF.FileName;
@@ -98,9 +98,7 @@ namespace FileParser
             }
             catch
             {
-
                 MessageBox.Show("Ошибка. Что-то не то со структурой файла. Убедитесь, что файл на входе выполнен по стандарту Яндекс XML");
-
             }
         }
 
