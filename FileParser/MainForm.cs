@@ -10,8 +10,6 @@ using System.Net;
 using System.Collections.Generic;
 
 
-//using Excel = Microsoft.Office.Interop.Excel;
-
 namespace FileParser
 {
     public partial class MainForm : Form
@@ -26,23 +24,10 @@ namespace FileParser
                                                 "Универсальный парсер XML, позволяет полностью разобрать произвольные поля в XML документе",
                                                 "По имени файла, определяет валидный артикул. На входе csv c колонкой только имен файлов"};
 
-        private DataGridView MDGW;
-        private Grids mgrid;
-        // зададим колонки
-        DataGridViewColumn column2 = new DataGridViewColumn();
-        DataGridViewColumn column1 = new DataGridViewColumn();
-        DataGridViewColumn column3 = new DataGridViewColumn();
-
-        
-
         public MainForm()
         {
             InitializeComponent();
-            
-            
-            InitializeTimer();
-            
-
+            //InitializeTimer();
         }
 
         
@@ -54,12 +39,12 @@ namespace FileParser
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Вставляем защиту - нескомпилированное приложение перестанет работать с 1 февраля
-            DateTime date1 = new DateTime(2026, 9, 16); // до этого дня все еще будет работать
+            //  Нескомпилированное приложение перестанет работать с 
+            DateTime date1 = new DateTime(2026, 9, 16); 
             var periodNow = DateTime.Now;
             if (periodNow < date1)
             {
-                //MessageBox.Show("Порядок");
+                
             }
             else
             {
@@ -112,10 +97,7 @@ namespace FileParser
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+ 
 
         private void главнаяToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -179,28 +161,13 @@ namespace FileParser
             }
         }
 
-        private void кПродажеНаМаркетплейсахИз1СToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void дашбоардToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-                       
-        }
-
+       
         private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form Settings_project = new Settings_project
             {
                 Visible = true
             };
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            
-
         }
 
         
@@ -212,99 +179,9 @@ namespace FileParser
         }
 
 
-        private void данныеПоФайлампараллельныйToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
 
-        private void записатьНовыйTempofarticlesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+       
 
-
-        }
-
-        private void обновитьФайлыВсеОТовареToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void данныеПоФайламартикулыToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnRenewDates_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void выгрузкаПоЦенамостаткамИДоступностиССайтаToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button3_Click(object sender, EventArgs e) // открытие в папке выбранного файла
-        {
-           
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            
-
-        }
-        private void InitializeTimer()
-        {
-            // Run this procedure in an appropriate event.  
-
-            timer1.Interval = 30000;
-            timer1.Enabled = true;
-            // Hook up timer's tick event handler.  
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-        }
-
-        private void получитьВходныеДанныеДляМодерацииСвечекToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void маркетплейсыToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void основныеКомандыToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void указатьФайлМодерацииToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void загрузитьФайлыОтделаКонтентаToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void pNG300x300ИзПапкиToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            JPGxPNG jPGxPNG = new JPGxPNG
-            {
-                Visible = true
-            };
-        }
-
-        private void обновитьФайлыМинифотобанкатолькоДляРазработчиковToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-
-        }
     }
 
 }

@@ -30,7 +30,6 @@ namespace FileParser
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.button2 = new System.Windows.Forms.Button();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.rBtnRead = new System.Windows.Forms.RadioButton();
@@ -40,21 +39,20 @@ namespace FileParser
             this.rBtnXML = new System.Windows.Forms.RadioButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.главнаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.rBtnXMLuniverse = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.btnShowBasePath = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(297, 192);
+            this.button2.Location = new System.Drawing.Point(276, 192);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(166, 22);
+            this.button2.Size = new System.Drawing.Size(187, 22);
             this.button2.TabIndex = 5;
             this.button2.Text = "Запустить программу";
             this.button2.UseVisualStyleBackColor = true;
@@ -138,8 +136,8 @@ namespace FileParser
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.настройкиToolStripMenuItem,
-            this.toolStripMenuItem1,
-            this.главнаяToolStripMenuItem});
+            this.главнаяToolStripMenuItem,
+            this.оПрограммеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(654, 24);
@@ -152,12 +150,6 @@ namespace FileParser
             this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.настройкиToolStripMenuItem.Text = "Настройки";
             this.настройкиToolStripMenuItem.Click += new System.EventHandler(this.настройкиToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 20);
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // главнаяToolStripMenuItem
             // 
@@ -206,12 +198,13 @@ namespace FileParser
             this.btnShowBasePath.TabIndex = 16;
             this.btnShowBasePath.Text = "Открыть выходную папку";
             this.btnShowBasePath.UseVisualStyleBackColor = true;
-            this.btnShowBasePath.Visible = false;
             this.btnShowBasePath.Click += new System.EventHandler(this.btnShowBasePath_Click);
             // 
-            // timer1
+            // оПрограммеToolStripMenuItem
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.оПрограммеToolStripMenuItem.Text = "О программе";
             // 
             // MainForm
             // 
@@ -267,8 +260,7 @@ namespace FileParser
         private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnShowBasePath;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
     }
 }
 
