@@ -27,5 +27,16 @@ namespace FileParser.Forms
             System.Diagnostics.Process.Start("https://kosarev.site");
 
         }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://youtu.be/tsBcHXxRKQk");
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://t.me/it_marketology");
+
+        }
     }
 }
