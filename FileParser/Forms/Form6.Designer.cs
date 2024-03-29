@@ -38,10 +38,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.form6BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.form6BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.form6BindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.form6BindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.form6BindingSource)).BeginInit();
@@ -129,13 +130,33 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(440, 297);
+            this.button2.Location = new System.Drawing.Point(440, 309);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(195, 23);
             this.button2.TabIndex = 11;
             this.button2.Text = "Сохранить структуру";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(440, 185);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(10, 10);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "удалить";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(439, 338);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(196, 23);
+            this.button5.TabIndex = 13;
+            this.button5.Text = "Восстановить XML из CSV";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // form6BindingSource1
             // 
@@ -149,21 +170,12 @@
             // 
             this.form6BindingSource2.DataSource = typeof(FileParser.Form6);
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(440, 326);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(195, 24);
-            this.button4.TabIndex = 12;
-            this.button4.Text = "Восстановить XML из CSV";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(647, 402);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label4);
@@ -200,5 +212,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }

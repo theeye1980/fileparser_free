@@ -237,7 +237,12 @@ namespace FileParser
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //Восстанавливаем XML из CSV
+           
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            // Восстанавливаем XML из CSV
             string csvFilePath = Properties.Settings.Default.basepath + @"\your_csv_file.csv";
             string xmlFilePath = Properties.Settings.Default.basepath + @"\output_xml_file.xml";
 
@@ -248,10 +253,15 @@ namespace FileParser
                 csvLines = reader.ReadToEnd().Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
             }
 
-            // Create XML document
+            // Create XML document and load existing structure
             XmlDocument xmlDoc = new XmlDocument();
-            XmlElement offersElement = xmlDoc.CreateElement("offers");
+            xmlDoc.Load(Properties.Settings.Default.basepath + @"\output_structure.xml");
 
+            // Navigate to the parent node where you want to add the "offers" element
+            XmlNode shopNode = xmlDoc.SelectSingleNode("/yml_catalog/shop");
+
+            // Create "offers" element
+            XmlElement offersElement = xmlDoc.CreateElement("offers");
 
             // Extract field names from the first line
             string[] fieldNames = csvLines[0].Split(';');
@@ -294,16 +304,18 @@ namespace FileParser
 
                 offersElement.AppendChild(offerElement);
             }
+
             // Add <offers> to the XML document
-            xmlDoc.AppendChild(offersElement);
+            shopNode.AppendChild(offersElement);
+
             // Save XML document to file
             using (XmlTextWriter xmlWriter = new XmlTextWriter(xmlFilePath, Encoding.GetEncoding("Windows-1251")))
             {
                 xmlWriter.Formatting = Formatting.Indented;
                 xmlDoc.Save(xmlWriter);
             }
-            Console.WriteLine("XML file generated successfully.");
 
+            Console.WriteLine("XML file generated successfully.");
         }
     }
 }
