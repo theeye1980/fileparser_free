@@ -411,6 +411,82 @@ namespace FileParser
                     // Create "offers" element
                     XmlElement offersElement = xmlDoc.CreateElement("offers");
 
+                    //////// Read Excel data into a two-dimensional array
+                    object[,] excelData = worksheet.UsedRange.Value2;
+
+                    // Process each row of the array
+                    for (int row = 2; row <= excelData.GetLength(0); row++)
+                    {
+                        // Check if the first column is empty
+                        if (excelData[row, 1] == null || string.IsNullOrEmpty(excelData[row, 1].ToString()))
+                        {
+                            // Break out of the loop
+                            break;
+                        }
+
+                        XmlElement offerElement = xmlDoc.CreateElement("offer");
+
+                        // Set attributes
+                        offerElement.SetAttribute("id", excelData[row, 1].ToString());
+                        offerElement.SetAttribute("available", excelData[row, 2].ToString());
+
+                        // Process other columns in the row
+                        for (int col = 3; col <= excelData.GetLength(1); col++)
+                        {
+                            // Process cell data
+                            string fieldName = excelData[1, col]?.ToString();
+                            string fieldValue = excelData[row, col]?.ToString();
+
+                            bool conditionMet = false; // Variable to track whether any condition was met
+                            
+
+                            if (string.IsNullOrEmpty(fieldName) || fieldName == "Category")
+                            {
+                                // Skip creating elements for empty or "category" fields
+                                break;
+                            }
+
+                            //проверяем, чтобы не конец колонки
+
+                            if (fieldName == "picture" && fieldValue.Contains("|"))
+                            {
+                                // Split the picture field by "|" separator
+                                string[] pictureUrls = fieldValue.Split('|');
+
+                                // Start cycle for each picture URL
+                                foreach (string pictureUrl in pictureUrls)
+                                {
+                                    XmlElement pictureElement = xmlDoc.CreateElement("picture");
+                                    pictureElement.InnerText = pictureUrl;
+                                    offerElement.AppendChild(pictureElement);
+                                }
+                                conditionMet = true; // Set the flag to true
+                            }
+
+                            if (fieldName.StartsWith("param"))
+                            {
+                                XmlElement paramElement = xmlDoc.CreateElement("param");
+                                string paramName = fieldName.Replace("param", ""); // Remove "param" from the field name
+                                paramElement.SetAttribute("name", paramName);
+                                paramElement.InnerText = fieldValue;
+                                offerElement.AppendChild(paramElement);
+                                conditionMet = true; // Set the flag to true
+                            }
+                            if (!conditionMet)
+                            {
+                                XmlElement childElement = xmlDoc.CreateElement(fieldName);
+                                childElement.InnerText = fieldValue;
+                                offerElement.AppendChild(childElement);
+                            }
+                        }
+
+                        offersElement.AppendChild(offerElement);
+                    }
+
+
+
+                    ///////////////
+                    /*
                     // Process each row of the worksheet
                     for (int row = 2; row <= worksheet.Rows.Count; row++) // Assuming the first row is header
                     {
@@ -429,13 +505,31 @@ namespace FileParser
                         // Add child elements
                         for (int col = 3; col <= worksheet.Columns.Count; col++)
                         {
+                            bool conditionMet = false; // Variable to track whether any condition was met
                             string fieldName = worksheet.Cells[1, col].Value.ToString();
                             string fieldValue = worksheet.Cells[row, col].Value != null ? worksheet.Cells[row, col].Value.ToString() : "";
-
+                            
                             if (string.IsNullOrEmpty(fieldName) || fieldName == "Category")
                             {
                                 // Skip creating elements for empty or "category" fields
                                 break;
+                            }
+
+                            //проверяем, чтобы не конец колонки
+
+                            if (fieldName == "picture" && fieldValue.Contains("|"))
+                            {
+                                // Split the picture field by "|" separator
+                                string[] pictureUrls = fieldValue.Split('|');
+
+                                // Start cycle for each picture URL
+                                foreach (string pictureUrl in pictureUrls)
+                                {
+                                    XmlElement pictureElement = xmlDoc.CreateElement("picture");
+                                    pictureElement.InnerText = pictureUrl;
+                                    offerElement.AppendChild(pictureElement);
+                                }
+                                conditionMet = true; // Set the flag to true
                             }
 
                             if (fieldName.StartsWith("param"))
@@ -445,8 +539,9 @@ namespace FileParser
                                 paramElement.SetAttribute("name", paramName);
                                 paramElement.InnerText = fieldValue;
                                 offerElement.AppendChild(paramElement);
+                                conditionMet = true; // Set the flag to true
                             }
-                            else
+                            if(!conditionMet)
                             {
                                 XmlElement childElement = xmlDoc.CreateElement(fieldName);
                                 childElement.InnerText = fieldValue;
@@ -457,6 +552,7 @@ namespace FileParser
                         offersElement.AppendChild(offerElement);
                     }
 
+                    */
                     // Add <offers> to the XML document
                     shopNode.AppendChild(offersElement);
 
