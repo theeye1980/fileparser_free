@@ -208,5 +208,82 @@ namespace FileParser
         }
 
         private void label4_Click(object sender, EventArgs e) { }
+
+        private void button2_Click_1(object sender, EventArgs e) //Сохранение структуры файла
+        {
+            string outputFilePath = Properties.Settings.Default.basepath + @"\output_structure.xml";
+            // Загрузка XML из файла.
+            doc.Load(this.path);
+            // Get the <shop> node
+            XmlNode shopNode = doc.SelectSingleNode("/yml_catalog");
+
+            // Create a new XML document to store the structure
+            XmlDocument structureDoc = new XmlDocument();
+            
+            XmlNode importedNode = structureDoc.ImportNode(shopNode, true);
+            structureDoc.AppendChild(importedNode);
+
+            // Remove <offers> nodes
+           
+            XmlNodeList offersNodes = structureDoc.SelectNodes("/yml_catalog/shop/offers");
+            foreach (XmlNode node in offersNodes)
+            {
+                node.ParentNode.RemoveChild(node);
+            }
+            // Save the modified structure to a file
+            structureDoc.Save(outputFilePath);
+            Console.WriteLine("Structure saved to: " + outputFilePath);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //Восстанавливаем XML из CSV
+            string csvFilePath = Properties.Settings.Default.basepath + @"\your_csv_file.csv";
+            string xmlFilePath = Properties.Settings.Default.basepath + @"\output_xml_file.xml";
+
+            // Load CSV file
+            string[] csvLines;
+            using (StreamReader reader = new StreamReader(csvFilePath, Encoding.GetEncoding("Windows-1251")))
+            {
+                csvLines = reader.ReadToEnd().Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+            }
+
+            // Create XML document
+            XmlDocument xmlDoc = new XmlDocument();
+            XmlElement offersElement = xmlDoc.CreateElement("offers");
+
+
+            // Skip the header line and process each line of the CSV
+            for (int i = 1; i < csvLines.Length; i++)
+            {
+                string[] fields = csvLines[i].Split(';');
+
+                XmlElement offerElement = xmlDoc.CreateElement("offer");
+
+                // Set attributes
+                offerElement.SetAttribute("id", fields[0]);
+                offerElement.SetAttribute("available", fields[1]);
+
+                // Add child elements
+                for (int j = 2; j < fields.Length; j++)
+                {
+                    XmlElement childElement = xmlDoc.CreateElement(fields[0].ToLower()); // Field 0 is used as the element name
+                    childElement.InnerText = fields[j];
+                    offerElement.AppendChild(childElement);
+                }
+
+                offersElement.AppendChild(offerElement);
+            }
+            // Add <offers> to the XML document
+            xmlDoc.AppendChild(offersElement);
+            // Save XML document to file
+            using (XmlTextWriter xmlWriter = new XmlTextWriter(xmlFilePath, Encoding.GetEncoding("Windows-1251")))
+            {
+                xmlWriter.Formatting = Formatting.Indented;
+                xmlDoc.Save(xmlWriter);
+            }
+            Console.WriteLine("XML file generated successfully.");
+
+        }
     }
 }
