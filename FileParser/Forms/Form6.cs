@@ -122,6 +122,17 @@ namespace FileParser
         private void button3_Click(object sender, EventArgs e)
         {
 
+            // Check if 'this.path' is empty or null
+            if (string.IsNullOrEmpty(this.path))
+            {
+                // Show message
+                MessageBox.Show("Сначала надо указать файл. Нажмите на кнопку \"Выбрать\" наверху ");
+                // You can also show a message box or any other appropriate method for your application
+
+                // Exit the procedure or method
+                return; // or you can use 'return;' to exit immediately
+            }
+
             // helloworld.FolderReader FolderReader = new helloworld.FolderReader();
             // делаем второй проход по товарам и выгружаем в CSV
 
