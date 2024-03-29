@@ -10,15 +10,19 @@ using System.Windows.Forms;
 using System.IO;
 using System.Xml;
 using FileParser.DedicClasses;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace FileParser
 {
     public partial class Form6 : Form
     {
         protected string path = "";
+        protected string csvFilePath = "";
+        protected string StructurePath = String.Empty;
         public string[][] categories = new string[3][];
         public string[] distinct_arr;
         // подключаем объекты для управления сеткой
+        OpenFileDialog OPF = new OpenFileDialog();
         Grids gr = new Grids();
         DataGridViewColumn column1 = new DataGridViewColumn();
         DataGridViewColumn column2 = new DataGridViewColumn();
@@ -45,7 +49,7 @@ namespace FileParser
         {
             try
             {
-                OpenFileDialog OPF = new OpenFileDialog();
+                
                 OPF.Filter = "XML and YML files (*.xml;*.yml)|*.xml;*.yml";
                 if (OPF.ShowDialog() == DialogResult.OK)
                 {
@@ -211,7 +215,24 @@ namespace FileParser
 
         private void button2_Click_1(object sender, EventArgs e) //Сохранение структуры файла
         {
-            string outputFilePath = Properties.Settings.Default.basepath + @"\output_structure.xml";
+            string structurePath = this.textBox1.Text;
+            string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(structurePath);
+
+            string outputFilePath = Properties.Settings.Default.basepath + @"\" + fileNameWithoutExtension + "_structure.xml";
+            
+            
+            // Check if 'this.path' is empty or null
+            if (string.IsNullOrEmpty(this.path))
+            {
+                // Show message
+                MessageBox.Show("Сначала надо указать файл. Нажмите на кнопку \"Выбрать\" наверху ");
+                // You can also show a message box or any other appropriate method for your application
+
+                // Exit the procedure or method
+                return; // or you can use 'return;' to exit immediately
+            }
+
+
             // Загрузка XML из файла.
             doc.Load(this.path);
             // Get the <shop> node
@@ -233,6 +254,7 @@ namespace FileParser
             // Save the modified structure to a file
             structureDoc.Save(outputFilePath);
             Console.WriteLine("Structure saved to: " + outputFilePath);
+            MessageBox.Show("Файл структуры сохранен по адресу " + outputFilePath);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -242,8 +264,16 @@ namespace FileParser
 
         private void button5_Click(object sender, EventArgs e)
         {
-            // Восстанавливаем XML из CSV
-            string csvFilePath = Properties.Settings.Default.basepath + @"\your_csv_file.csv";
+            //Указываем CSV файл для восстановления
+            OPF.Filter = "CSV files (*.csv)|*.csv";
+            if (OPF.ShowDialog() == DialogResult.OK)
+            {
+               csvFilePath = OPF.FileName;
+                
+            }
+
+                // Восстанавливаем XML из CSV
+            //string csvFilePath = Properties.Settings.Default.basepath + @"\your_csv_file.csv";
             string xmlFilePath = Properties.Settings.Default.basepath + @"\output_xml_file.xml";
 
             // Load CSV file
@@ -280,6 +310,8 @@ namespace FileParser
                 // Add child elements
                 for (int j = 2; j < fields.Length; j++)
                 {
+                    bool conditionMet = false; // Variable to track whether any condition was met
+
                     if (string.IsNullOrEmpty(fieldNames[j]) || fieldNames[j] == "Category")
                     {
                         // Skip creating elements for empty or "category" fields
@@ -293,8 +325,25 @@ namespace FileParser
                         paramElement.SetAttribute("name", paramName);
                         paramElement.InnerText = fields[j];
                         offerElement.AppendChild(paramElement);
+                        conditionMet = true; // Set the flag to true
                     }
-                    else
+
+                    if (fieldNames[j] == "picture" && fields[j].Contains("|"))
+                    {
+                        // Split the picture field by "|" separator
+                        string[] pictureUrls = fields[j].Split('|');
+
+                        // Start cycle for each picture URL
+                        foreach (string pictureUrl in pictureUrls)
+                        {
+                            XmlElement pictureElement = xmlDoc.CreateElement("picture");
+                            pictureElement.InnerText = pictureUrl;
+                            offerElement.AppendChild(pictureElement);
+                        }
+                        conditionMet = true; // Set the flag to true
+                    }
+
+                    if (!conditionMet)
                     {
                         XmlElement childElement = xmlDoc.CreateElement(fieldNames[j]);
                         childElement.InnerText = fields[j];
@@ -316,6 +365,117 @@ namespace FileParser
             }
 
             Console.WriteLine("XML file generated successfully.");
+            MessageBox.Show("Файл сгенерирован и положен по адресу " + xmlFilePath);
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            // Specify XLSX file for restoration
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string xlsxFilePath = openFileDialog.FileName;
+
+                // Output XML file path
+                string xmlFilePath = Properties.Settings.Default.basepath + @"\output_xml_file.xml";
+
+                // Create Excel application object
+                Excel.Application excelApp = new Excel.Application();
+                Excel.Workbook workbook = null;
+
+                try
+                {
+                    // Open workbook
+                    workbook = excelApp.Workbooks.Open(xlsxFilePath);
+                    Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Sheets[1]; // Assuming the first sheet
+
+                    // Create XML document and load existing structure
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.Load(Properties.Settings.Default.basepath + @"\output_structure.xml");
+
+                    // Navigate to the parent node where you want to add the "offers" element
+                    XmlNode shopNode = xmlDoc.SelectSingleNode("/yml_catalog/shop");
+
+                    // Create "offers" element
+                    XmlElement offersElement = xmlDoc.CreateElement("offers");
+
+                    // Process each row of the worksheet
+                    for (int row = 2; row <= worksheet.Rows.Count; row++) // Assuming the first row is header
+                    {
+                        // Check if the value in the first column of the current row is empty
+                        if (string.IsNullOrEmpty(worksheet.Cells[row, 1]?.Value?.ToString()))
+                        {
+                            // Break out of the loop
+                            break;
+                        }
+                        XmlElement offerElement = xmlDoc.CreateElement("offer");
+
+                        // Set attributes
+                        offerElement.SetAttribute("id", worksheet.Cells[row, 1].Value.ToString());
+                        offerElement.SetAttribute("available", worksheet.Cells[row, 2].Value.ToString());
+
+                        // Add child elements
+                        for (int col = 3; col <= worksheet.Columns.Count; col++)
+                        {
+                            string fieldName = worksheet.Cells[1, col].Value.ToString();
+                            string fieldValue = worksheet.Cells[row, col].Value != null ? worksheet.Cells[row, col].Value.ToString() : "";
+
+                            if (string.IsNullOrEmpty(fieldName) || fieldName == "Category")
+                            {
+                                // Skip creating elements for empty or "category" fields
+                                break;
+                            }
+
+                            if (fieldName.StartsWith("param"))
+                            {
+                                XmlElement paramElement = xmlDoc.CreateElement("param");
+                                string paramName = fieldName.Replace("param", ""); // Remove "param" from the field name
+                                paramElement.SetAttribute("name", paramName);
+                                paramElement.InnerText = fieldValue;
+                                offerElement.AppendChild(paramElement);
+                            }
+                            else
+                            {
+                                XmlElement childElement = xmlDoc.CreateElement(fieldName);
+                                childElement.InnerText = fieldValue;
+                                offerElement.AppendChild(childElement);
+                            }
+                        }
+
+                        offersElement.AppendChild(offerElement);
+                    }
+
+                    // Add <offers> to the XML document
+                    shopNode.AppendChild(offersElement);
+
+                    // Save XML document to file
+                    using (XmlTextWriter xmlWriter = new XmlTextWriter(xmlFilePath, Encoding.GetEncoding("Windows-1251")))
+                    {
+                        xmlWriter.Formatting = Formatting.Indented;
+                        xmlDoc.Save(xmlWriter);
+                    }
+                    workbook?.Close(false);
+                    excelApp?.Quit();
+                    Console.WriteLine("XML file generated successfully.");
+                    MessageBox.Show("Файл сгенерирован и положен по адресу " + xmlFilePath);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                finally
+                {
+                    // Close workbook and quit Excel application
+                    workbook?.Close(false);
+                    excelApp?.Quit();
+
+                    // Release COM objects
+                    //ReleaseComObject(workbook);
+                    //ReleaseComObject(excelApp);
+                }
+            }
+        }
+
     }
 }

@@ -40,12 +40,12 @@ namespace FileParser
             this.rBtnXML = new System.Windows.Forms.RadioButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.главнаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.rBtnXMLuniverse = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.btnShowBasePath = new System.Windows.Forms.Button();
-            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +66,7 @@ namespace FileParser
             this.richTextBox2.Size = new System.Drawing.Size(366, 125);
             this.richTextBox2.TabIndex = 4;
             this.richTextBox2.Text = "";
+            this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
             // 
             // rBtnRead
             // 
@@ -125,10 +126,10 @@ namespace FileParser
             this.rBtnXML.AutoSize = true;
             this.rBtnXML.Location = new System.Drawing.Point(21, 160);
             this.rBtnXML.Name = "rBtnXML";
-            this.rBtnXML.Size = new System.Drawing.Size(160, 17);
+            this.rBtnXML.Size = new System.Drawing.Size(176, 17);
             this.rBtnXML.TabIndex = 10;
             this.rBtnXML.TabStop = true;
-            this.rBtnXML.Text = "Считать Яндекс YML в csv";
+            this.rBtnXML.Text = "Яндекс YML в csv и наоборот";
             this.rBtnXML.UseVisualStyleBackColor = true;
             this.rBtnXML.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
             this.rBtnXML.Click += new System.EventHandler(this.label2_Click);
@@ -151,6 +152,13 @@ namespace FileParser
             this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.настройкиToolStripMenuItem.Text = "Настройки";
             this.настройкиToolStripMenuItem.Click += new System.EventHandler(this.настройкиToolStripMenuItem_Click);
+            // 
+            // оПрограммеToolStripMenuItem
+            // 
+            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
             // главнаяToolStripMenuItem
             // 
@@ -200,13 +208,6 @@ namespace FileParser
             this.btnShowBasePath.Text = "Открыть выходную папку";
             this.btnShowBasePath.UseVisualStyleBackColor = true;
             this.btnShowBasePath.Click += new System.EventHandler(this.btnShowBasePath_Click);
-            // 
-            // оПрограммеToolStripMenuItem
-            // 
-            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
-            this.оПрограммеToolStripMenuItem.Text = "О программе";
-            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
             // MainForm
             // 
