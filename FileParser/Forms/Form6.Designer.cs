@@ -40,10 +40,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.form6BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.form6BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.form6BindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.button6 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.form6BindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.form6BindingSource)).BeginInit();
@@ -75,7 +78,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 39);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(418, 352);
+            this.dataGridView1.Size = new System.Drawing.Size(418, 346);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -111,7 +114,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(440, 302);
+            this.button3.Location = new System.Drawing.Point(436, 201);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(195, 23);
             this.button3.TabIndex = 9;
@@ -131,7 +134,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(439, 273);
+            this.button2.Location = new System.Drawing.Point(436, 230);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(195, 23);
             this.button2.TabIndex = 11;
@@ -151,13 +154,25 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(440, 331);
+            this.button5.Enabled = false;
+            this.button5.Location = new System.Drawing.Point(440, 313);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(196, 23);
             this.button5.TabIndex = 13;
             this.button5.Text = "Восстановить XML из CSV";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Enabled = false;
+            this.button6.Location = new System.Drawing.Point(440, 342);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(196, 23);
+            this.button6.TabIndex = 14;
+            this.button6.Text = "Восстановить XML из XLSX";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // form6BindingSource1
             // 
@@ -171,21 +186,43 @@
             // 
             this.form6BindingSource2.DataSource = typeof(FileParser.Form6);
             // 
-            // button6
+            // label5
             // 
-            this.button6.Location = new System.Drawing.Point(440, 361);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(196, 23);
-            this.button6.TabIndex = 14;
-            this.button6.Text = "Восстановить XML из XLSX";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(437, 268);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(136, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Укажите файл структуры";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(440, 284);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(196, 23);
+            this.button7.TabIndex = 17;
+            this.button7.Text = "Выбрать структуру";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(440, 371);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(647, 402);
+            this.ClientSize = new System.Drawing.Size(647, 397);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -226,5 +263,8 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label label6;
     }
 }

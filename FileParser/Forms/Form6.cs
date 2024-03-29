@@ -18,7 +18,7 @@ namespace FileParser
     {
         protected string path = "";
         protected string csvFilePath = "";
-        protected string StructurePath = String.Empty;
+        protected string StructurePath = "";
         public string[][] categories = new string[3][];
         public string[] distinct_arr;
         // подключаем объекты для управления сеткой
@@ -285,7 +285,7 @@ namespace FileParser
 
             // Create XML document and load existing structure
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(Properties.Settings.Default.basepath + @"\output_structure.xml");
+            xmlDoc.Load(StructurePath);
 
             // Navigate to the parent node where you want to add the "offers" element
             XmlNode shopNode = xmlDoc.SelectSingleNode("/yml_catalog/shop");
@@ -392,7 +392,7 @@ namespace FileParser
 
                     // Create XML document and load existing structure
                     XmlDocument xmlDoc = new XmlDocument();
-                    xmlDoc.Load(Properties.Settings.Default.basepath + @"\output_structure.xml");
+                    xmlDoc.Load(StructurePath);
 
                     // Navigate to the parent node where you want to add the "offers" element
                     XmlNode shopNode = xmlDoc.SelectSingleNode("/yml_catalog/shop");
@@ -455,8 +455,7 @@ namespace FileParser
                         xmlWriter.Formatting = Formatting.Indented;
                         xmlDoc.Save(xmlWriter);
                     }
-                    workbook?.Close(false);
-                    excelApp?.Quit();
+                   
                     Console.WriteLine("XML file generated successfully.");
                     MessageBox.Show("Файл сгенерирован и положен по адресу " + xmlFilePath);
                 }
@@ -477,5 +476,29 @@ namespace FileParser
             }
         }
 
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "XML and YML files (*.xml;*.yml)|*.xml;*.yml";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StructurePath = openFileDialog.FileName;
+                label6.Text = openFileDialog.FileName;
+                button5.Enabled = true;
+                button6.Enabled = true;
+            }
+
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
