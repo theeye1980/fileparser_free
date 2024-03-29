@@ -253,6 +253,9 @@ namespace FileParser
             XmlElement offersElement = xmlDoc.CreateElement("offers");
 
 
+            // Extract field names from the first line
+            string[] fieldNames = csvLines[0].Split(';');
+
             // Skip the header line and process each line of the CSV
             for (int i = 1; i < csvLines.Length; i++)
             {
@@ -267,9 +270,26 @@ namespace FileParser
                 // Add child elements
                 for (int j = 2; j < fields.Length; j++)
                 {
-                    XmlElement childElement = xmlDoc.CreateElement(fields[0].ToLower()); // Field 0 is used as the element name
-                    childElement.InnerText = fields[j];
-                    offerElement.AppendChild(childElement);
+                    if (string.IsNullOrEmpty(fieldNames[j]) || fieldNames[j] == "Category")
+                    {
+                        // Skip creating elements for empty or "category" fields
+                        continue;
+                    }
+
+                    if (fieldNames[j].StartsWith("param"))
+                    {
+                        XmlElement paramElement = xmlDoc.CreateElement("param");
+                        string paramName = fieldNames[j].Replace("param", ""); // Remove "param" from the field name
+                        paramElement.SetAttribute("name", paramName);
+                        paramElement.InnerText = fields[j];
+                        offerElement.AppendChild(paramElement);
+                    }
+                    else
+                    {
+                        XmlElement childElement = xmlDoc.CreateElement(fieldNames[j]);
+                        childElement.InnerText = fields[j];
+                        offerElement.AppendChild(childElement);
+                    }
                 }
 
                 offersElement.AppendChild(offerElement);
