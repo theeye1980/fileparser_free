@@ -4,12 +4,14 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
 using System.IO;
+using System.Text;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace FileParser
 {
     //Класс e работы с файлом отчета по поставщикам и сайта по данным 1С 
 
-    //Класс для работы с объектами типа XmlNodeList
+    //Класс для работы с объектами типа XmlNodeList и xlsx
     public class Xml_helper
     {
 
@@ -188,6 +190,121 @@ namespace FileParser
             JaggedArray[3] = result3;
 
             return JaggedArray;
+        }
+
+
+        public static void Convert(string xlsxFilePath, string xmlFilePath, string structurePath)
+        {
+            Excel.Application excelApp = new Excel.Application();
+            Excel.Workbook workbook = null;
+
+            try
+            {
+                // Open workbook
+                workbook = excelApp.Workbooks.Open(xlsxFilePath);
+                Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Sheets[1]; // Assuming the first sheet
+
+                // Create XML document and load existing structure
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(structurePath);
+
+                // Navigate to the parent node where you want to add the "offers" element
+                XmlNode shopNode = xmlDoc.SelectSingleNode("/yml_catalog/shop");
+
+                // Create "offers" element
+                XmlElement offersElement = xmlDoc.CreateElement("offers");
+
+                // Read Excel data into a two-dimensional array
+                object[,] excelData = worksheet.UsedRange.Value2;
+
+                // Process each row of the array
+                for (int row = 2; row <= excelData.GetLength(0); row++)
+                {
+                    // Check if the first column is empty
+                    if (excelData[row, 1] == null || string.IsNullOrEmpty(excelData[row, 1].ToString()))
+                    {
+                        // Break out of the loop
+                        break;
+                    }
+
+                    XmlElement offerElement = xmlDoc.CreateElement("offer");
+
+                    // Set attributes
+                    offerElement.SetAttribute("id", excelData[row, 1].ToString());
+                    offerElement.SetAttribute("available", excelData[row, 2].ToString());
+
+                    // Process other columns in the row
+                    for (int col = 3; col <= excelData.GetLength(1); col++)
+                    {
+                        // Process cell data
+                        string fieldName = excelData[1, col]?.ToString();
+                        string fieldValue = excelData[row, col]?.ToString();
+
+                        bool conditionMet = false; // Variable to track whether any condition was met
+
+                        if (string.IsNullOrEmpty(fieldName) || fieldName == "Category")
+                        {
+                            // Skip creating elements for empty or "category" fields
+                            break;
+                        }
+
+                        if (fieldName == "picture" && fieldValue.Contains("|"))
+                        {
+                            // Split the picture field by "|" separator
+                            string[] pictureUrls = fieldValue.Split('|');
+
+                            // Start cycle for each picture URL
+                            foreach (string pictureUrl in pictureUrls)
+                            {
+                                XmlElement pictureElement = xmlDoc.CreateElement("picture");
+                                pictureElement.InnerText = pictureUrl;
+                                offerElement.AppendChild(pictureElement);
+                            }
+                            conditionMet = true; // Set the flag to true
+                        }
+
+                        if (fieldName.StartsWith("param"))
+                        {
+                            XmlElement paramElement = xmlDoc.CreateElement("param");
+                            string paramName = fieldName.Replace("param", ""); // Remove "param" from the field name
+                            paramElement.SetAttribute("name", paramName);
+                            paramElement.InnerText = fieldValue;
+                            offerElement.AppendChild(paramElement);
+                            conditionMet = true; // Set the flag to true
+                        }
+                        if (!conditionMet)
+                        {
+                            XmlElement childElement = xmlDoc.CreateElement(fieldName);
+                            childElement.InnerText = fieldValue;
+                            offerElement.AppendChild(childElement);
+                        }
+                    }
+
+                    offersElement.AppendChild(offerElement);
+                }
+
+                shopNode.AppendChild(offersElement);
+
+                // Save XML document to file
+                using (XmlTextWriter xmlWriter = new XmlTextWriter(xmlFilePath, Encoding.GetEncoding("Windows-1251")))
+                {
+                    xmlWriter.Formatting = Formatting.Indented;
+                    xmlDoc.Save(xmlWriter);
+                }
+
+                Console.WriteLine("XML file generated successfully.");
+                MessageBox.Show("Файл сгенерирован и положен по адресу " + xmlFilePath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                // Close workbook and quit Excel application
+                workbook?.Close(false);
+                excelApp?.Quit();
+            }
         }
 
     }

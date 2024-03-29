@@ -41,12 +41,12 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.form6BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.form6BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.form6BindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.form6BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.form6BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.form6BindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.form6BindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.form6BindingSource)).BeginInit();
@@ -57,12 +57,12 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(199, 13);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(355, 20);
+            this.textBox1.Size = new System.Drawing.Size(401, 20);
             this.textBox1.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(560, 11);
+            this.button1.Location = new System.Drawing.Point(606, 13);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
@@ -116,7 +116,7 @@
             // 
             this.button3.Location = new System.Drawing.Point(436, 201);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(195, 23);
+            this.button3.Size = new System.Drawing.Size(245, 23);
             this.button3.TabIndex = 9;
             this.button3.Text = "Выгрузить в CSV";
             this.button3.UseVisualStyleBackColor = true;
@@ -136,7 +136,7 @@
             // 
             this.button2.Location = new System.Drawing.Point(436, 230);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(195, 23);
+            this.button2.Size = new System.Drawing.Size(245, 23);
             this.button2.TabIndex = 11;
             this.button2.Text = "Сохранить структуру YML файла";
             this.button2.UseVisualStyleBackColor = true;
@@ -157,7 +157,7 @@
             this.button5.Enabled = false;
             this.button5.Location = new System.Drawing.Point(440, 313);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(196, 23);
+            this.button5.Size = new System.Drawing.Size(241, 23);
             this.button5.TabIndex = 13;
             this.button5.Text = "Восстановить XML из CSV";
             this.button5.UseVisualStyleBackColor = true;
@@ -168,23 +168,11 @@
             this.button6.Enabled = false;
             this.button6.Location = new System.Drawing.Point(440, 342);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(196, 23);
+            this.button6.Size = new System.Drawing.Size(241, 23);
             this.button6.TabIndex = 14;
             this.button6.Text = "Восстановить XML из XLSX";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // form6BindingSource1
-            // 
-            this.form6BindingSource1.DataSource = typeof(FileParser.Form6);
-            // 
-            // form6BindingSource
-            // 
-            this.form6BindingSource.DataSource = typeof(FileParser.Form6);
-            // 
-            // form6BindingSource2
-            // 
-            this.form6BindingSource2.DataSource = typeof(FileParser.Form6);
             // 
             // label5
             // 
@@ -200,7 +188,7 @@
             // 
             this.button7.Location = new System.Drawing.Point(440, 284);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(196, 23);
+            this.button7.Size = new System.Drawing.Size(241, 23);
             this.button7.TabIndex = 17;
             this.button7.Text = "Выбрать структуру";
             this.button7.UseVisualStyleBackColor = true;
@@ -215,11 +203,23 @@
             this.label6.TabIndex = 18;
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
+            // form6BindingSource1
+            // 
+            this.form6BindingSource1.DataSource = typeof(FileParser.Form6);
+            // 
+            // form6BindingSource
+            // 
+            this.form6BindingSource.DataSource = typeof(FileParser.Form6);
+            // 
+            // form6BindingSource2
+            // 
+            this.form6BindingSource2.DataSource = typeof(FileParser.Form6);
+            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(647, 397);
+            this.ClientSize = new System.Drawing.Size(693, 397);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.label5);
