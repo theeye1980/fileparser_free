@@ -242,7 +242,7 @@ namespace FileParser
 
                         bool conditionMet = false; // Variable to track whether any condition was met
 
-                        if (string.IsNullOrEmpty(fieldName) || fieldName == "Category")
+                        if (string.IsNullOrEmpty(fieldName) || fieldName == "Category" || string.IsNullOrEmpty(fieldValue))
                         {
                             // Skip creating elements for empty or "category" fields
                             break;
