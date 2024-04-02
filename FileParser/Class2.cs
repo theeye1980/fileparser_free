@@ -349,30 +349,73 @@ namespace FileParser
                             }
                             else
                             {
-                                XmlElement paramElement = xmlDoc.CreateElement("param");
-                                string paramName = fieldName.Replace("param", ""); // Remove "param" from the field name
+                                
+                                if (fieldName.Contains("~")) { //Описываем ситуацию с несколькими аттрибутами
+                                                               
+                                    
+                                    string paramName = fieldName.Replace("param", ""); // Remove "param" from the field name
+                                    string[] field_arr = paramName.Split('~');
+                                    XmlElement paramElement = xmlDoc.CreateElement("param");
 
-                                // Search for Name and Value using regular expressions
-                                Match nameMatch = Regex.Match(paramName, namePattern);
-                                Match valueMatch = Regex.Match(paramName, valuePattern);
-
-                                // Check if both Name and Value are found
-                                if (nameMatch.Success && valueMatch.Success)
-                                {
-                                    string name = nameMatch.Groups[1].Value;
-                                    string value = valueMatch.Groups[1].Value;
-
-                                    paramElement.SetAttribute(name, value);
                                     paramElement.InnerText = fieldValue;
+
+                                    foreach (string field_a in field_arr) {
+                                        //Прописываем каждый аттрибут
+                                        // Search for Name and Value using regular expressions
+                                        Match nameMatch = Regex.Match(field_a, namePattern);
+                                        Match valueMatch = Regex.Match(field_a, valuePattern);
+                                        // Check if both Name and Value are found
+                                        if (nameMatch.Success && valueMatch.Success)
+                                        {
+                                            string name = nameMatch.Groups[1].Value;
+                                            string value = valueMatch.Groups[1].Value;
+
+                                            paramElement.SetAttribute(name, value);
+                                            
+                                            Console.WriteLine("Name: " + name);
+                                            Console.WriteLine("Value: " + value);
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("Name and/or Value not found in the input string.");
+                                        }
+
+
+
+                                    }
                                     offerElement.AppendChild(paramElement);
 
-                                    Console.WriteLine("Name: " + name);
-                                    Console.WriteLine("Value: " + value);
                                 }
-                                else
-                                {
-                                    Console.WriteLine("Name and/or Value not found in the input string.");
+                                else {
+                                    XmlElement paramElement = xmlDoc.CreateElement("param");
+                                    string paramName = fieldName.Replace("param", ""); // Remove "param" from the field name
+
+                                    // Search for Name and Value using regular expressions
+                                    Match nameMatch = Regex.Match(paramName, namePattern);
+                                    Match valueMatch = Regex.Match(paramName, valuePattern);
+
+                                    // Check if both Name and Value are found
+                                    if (nameMatch.Success && valueMatch.Success)
+                                    {
+                                        string name = nameMatch.Groups[1].Value;
+                                        string value = valueMatch.Groups[1].Value;
+
+                                        paramElement.SetAttribute(name, value);
+                                        paramElement.InnerText = fieldValue;
+                                        offerElement.AppendChild(paramElement);
+
+                                        Console.WriteLine("Name: " + name);
+                                        Console.WriteLine("Value: " + value);
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Name and/or Value not found in the input string.");
+                                    }
+
+
                                 }
+                                
+                                
                                 
                             }
                             conditionMet = true; // Set the flag to true
