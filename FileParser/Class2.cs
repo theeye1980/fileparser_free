@@ -233,6 +233,7 @@ namespace FileParser
                     offerElement.SetAttribute("id", excelData[row, 1].ToString());
                     offerElement.SetAttribute("available", excelData[row, 2].ToString());
 
+                    int mb = excelData.GetLength(1);
                     // Process other columns in the row
                     for (int col = 3; col <= excelData.GetLength(1); col++)
                     {
@@ -240,9 +241,14 @@ namespace FileParser
                         string fieldName = excelData[1, col]?.ToString();
                         string fieldValue = excelData[row, col]?.ToString();
 
+                        if (col == 17) 
+                        { 
+                            Console.WriteLine(fieldName);
+                        }
+
                         bool conditionMet = false; // Variable to track whether any condition was met
 
-                        if (string.IsNullOrEmpty(fieldName) || fieldName == "Category" || string.IsNullOrEmpty(fieldValue))
+                        if (string.IsNullOrEmpty(fieldName) || string.IsNullOrEmpty(fieldValue))
                         {
                             // Skip creating elements for empty or "category" fields
                             break;
