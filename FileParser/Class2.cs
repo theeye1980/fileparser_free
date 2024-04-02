@@ -42,10 +42,11 @@ namespace FileParser
                             for (int jj = 0; jj < attrOffer.Count; jj++)
                             {
                                 // Вытаскиваем аттрибуты в переменную
-                                prop += attrOffer[jj].InnerText + ",";
+                                //prop += attrOffer[jj].InnerText + ",";
+                                prop += "atNm" + attrOffer[jj].Name + "atVl" + attrOffer[jj].InnerText + "~";
                             }
-
-                            prop = prop.Remove(prop.Length - 1); //удаляем последнюю запятую
+                            //удаляем последнюю запятую
+                            prop = prop.Remove(prop.Length - 1);
                         }
 
                         // записываем значение свойства
@@ -112,7 +113,8 @@ namespace FileParser
                             for (int jj = 0; jj < attrOffer.Count; jj++)
                             {
                                 // Вытаскиваем аттрибуты в переменную
-                                prop += attrOffer[jj].InnerText + ",";
+                                //prop += attrOffer[jj].InnerText + ",";
+                                prop += "atNm" + attrOffer[jj].Name + "atVl" + attrOffer[jj].InnerText + "~";
                             }
                             //удаляем последнюю запятую
                             prop = prop.Remove(prop.Length - 1);
@@ -271,11 +273,28 @@ namespace FileParser
 
                         if (fieldName.StartsWith("param"))
                         {
-                            XmlElement paramElement = xmlDoc.CreateElement("param");
-                            string paramName = fieldName.Replace("param", ""); // Remove "param" from the field name
-                            paramElement.SetAttribute("name", paramName);
-                            paramElement.InnerText = fieldValue;
-                            offerElement.AppendChild(paramElement);
+                            if (fieldValue.Contains("|")) //Если несколько param, то делаем несколько
+                            {
+                                // Split the picture field by "|" separator
+                                string[] param_arr = fieldValue.Split('|');
+                                // Start cycle for each param
+                                foreach (string param_a in param_arr)
+                                {
+                                    XmlElement paramElement = xmlDoc.CreateElement("param");
+                                    string paramName = fieldName.Replace("param", ""); // Remove "param" from the field name
+                                    paramElement.SetAttribute("name", paramName);
+                                    paramElement.InnerText = param_a;
+                                    offerElement.AppendChild(paramElement);
+                                }
+                            }
+                            else
+                            {
+                                XmlElement paramElement = xmlDoc.CreateElement("param");
+                                string paramName = fieldName.Replace("param", ""); // Remove "param" from the field name
+                                paramElement.SetAttribute("name", paramName);
+                                paramElement.InnerText = fieldValue;
+                                offerElement.AppendChild(paramElement);
+                            }
                             conditionMet = true; // Set the flag to true
                         }
                         if (!conditionMet)
