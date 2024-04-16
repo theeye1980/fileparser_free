@@ -159,6 +159,7 @@ namespace FileParser
                 //cобираем категории в массив
                 categories[2][i] = CatList[i].InnerXml;
                 categories[2][i] = categories[2][i].Replace("\n", ""); ;
+                categories[2][i] = categories[2][i].Replace("\r", ""); ;
             }
 
 
@@ -184,7 +185,7 @@ namespace FileParser
                 }
             }
             // и проходим по всем строкам, записываем еще колонку с Категорией товаров
-
+            //FileSaver.CSV_writer(Properties.Settings.Default.basepath + @"\yml1.csv", goods_add);
             for (int k = 0; k < new_string_number; k++)
             {
                 if (k == 0)
