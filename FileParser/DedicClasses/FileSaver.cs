@@ -34,7 +34,7 @@ namespace FileParser.DedicClasses
         public static void CSV_writer(string out_path, string[,] goods) // записывает 2м массив в файл, чисто для xml годится
         {
 
-            StreamWriter f = new StreamWriter(FileParser.Properties.Settings.Default.basepath + @"\xml.csv", false, Encoding.GetEncoding("Windows-1251"));
+            StreamWriter f = new StreamWriter(out_path, false, Encoding.GetEncoding("Windows-1251"));
             string line = "";
 
             // бегаем по всем строкам массива
