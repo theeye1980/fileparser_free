@@ -28,7 +28,9 @@ namespace FileParser
                 XmlAttributeCollection attrColl = node[i].Attributes;
                 for (int j = 0; j < attrColl.Count; j++)
                 {
-                    props.Add(attrColl[j].Name);
+                    string offer_att_name= "atOfNm" + attrColl[j].Name;
+                    //props.Add(attrColl[j].Name);
+                    props.Add(offer_att_name);
                 }
                 if (node[i].HasChildNodes)
                 {
@@ -94,8 +96,12 @@ namespace FileParser
                 XmlAttributeCollection attrColl = OfferList[i].Attributes;
                 for (int j = 0; j < attrColl.Count; j++)
                 {
+                    //Ищем по аттрибуту
+
+                    string offer_att_name = "atOfNm" + attrColl[j].Name;
                     //записываем данные по аттрибутам
-                    int index = program.PropIndex(distinct_arr, attrColl[j].Name);
+                    int index = program.PropIndex(distinct_arr, offer_att_name);
+                    
                     goods[index, i + 1] = attrColl[j].InnerText;
 
 
@@ -200,6 +206,10 @@ namespace FileParser
         {
             Excel.Application excelApp = new Excel.Application();
             Excel.Workbook workbook = null;
+            // Define regular expressions for extracting Name and Value
+            string nameOfPattern = @"atOfNm(.*?)";
+            string namePattern = @"atNm(.*?)atVl";
+            string valuePattern = @"atVl(.*?)$";
 
             try
             {
@@ -223,6 +233,9 @@ namespace FileParser
                 // Process each row of the array
                 for (int row = 2; row <= excelData.GetLength(0); row++)
                 {
+
+                    /*
+                    
                     // Check if the first column is empty
                     if (excelData[row, 1] == null || string.IsNullOrEmpty(excelData[row, 1].ToString()))
                     {
@@ -234,30 +247,70 @@ namespace FileParser
 
                     // Set attributes
                     offerElement.SetAttribute("id", excelData[row, 1].ToString());
-                    offerElement.SetAttribute("available", excelData[row, 2].ToString());
+
+                    //string availible = excelData[row, 2].ToString();
+                    bool b_available = false;
+                    if (excelData[row, 2] != null && !string.IsNullOrEmpty(excelData[row, 2].ToString()))
+                    {
+                        b_available = true;
+                    }
+                    else
+                    {
+                        b_available = false;
+                    }
+
+                    offerElement.SetAttribute("available", b_available.ToString());
+                    */
+
+
+
+                    //Проверяем, не являетя ли эта ячейка пустой с самого начала
+
+                    if (excelData[row, 1] == null || string.IsNullOrEmpty(excelData[row, 1].ToString()))
+                    {
+                        // Break out of the loop
+                        break;
+                    }
+                    //создаем элемент offer
+                    XmlElement offerElement = xmlDoc.CreateElement("offer");
+
 
                     int mb = excelData.GetLength(1);
                     // Process other columns in the row
-                    for (int col = 3; col <= excelData.GetLength(1); col++)
+                    for (int col = 1; col <= excelData.GetLength(1); col++)
                     {
+                        
+
                         // Process cell data
                         string fieldName = excelData[1, col]?.ToString();
                         string fieldValue = excelData[row, col]?.ToString();
                         if (string.IsNullOrEmpty(fieldValue)) { continue; }
 
-                        if (col == 17) 
-                        { 
-                            Console.WriteLine(fieldName);
+                        bool conditionMet = false; // Variable to track whether any condition was met
+
+
+
+
+                        // Проверяем, не является ли ячейка аттбирутом offer
+                        
+                        Match nameOfMatch = Regex.Match(fieldName, nameOfPattern);
+
+                        if (nameOfMatch.Success) {
+
+                            //Нужно определить, что за хрень и записать значение в аттрибут
+                            string attrOfName = fieldName.Replace("atOfNm", "");
+                            offerElement.SetAttribute(attrOfName, fieldValue.ToString());
+                            continue;
                         }
 
-                        bool conditionMet = false; // Variable to track whether any condition was met
+
 
                         if (string.IsNullOrEmpty(fieldName))
                         {
                             // Skip creating elements for empty or "category" fields
                             break;
                         }
-
+                        if (fieldName == "Category") continue;
                         if (fieldName == "picture" && fieldValue.Contains("|"))
                         {
                             // Split the picture field by "|" separator
@@ -275,9 +328,7 @@ namespace FileParser
 
                         if (fieldName.StartsWith("param"))
                         {
-                            // Define regular expressions for extracting Name and Value
-                            string namePattern = @"atNm(.*?)atVl";
-                            string valuePattern = @"atVl(.*?)$";
+
 
                             
                             if (fieldValue.Contains("|")) //Если несколько param, то делаем несколько
