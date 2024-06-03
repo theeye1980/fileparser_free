@@ -359,11 +359,12 @@ namespace FileParser
 
                                     paramElement.InnerText = fieldValue;
 
-                                    foreach (string field_a in field_arr) {
-                                        //Прописываем каждый аттрибут
+                                    foreach (string field_a in field_arr) { //Прописываем каждый аттрибут
+                                        
                                         // Search for Name and Value using regular expressions
                                         Match nameMatch = Regex.Match(field_a, namePattern);
                                         Match valueMatch = Regex.Match(field_a, valuePattern);
+                                        
                                         // Check if both Name and Value are found
                                         if (nameMatch.Success && valueMatch.Success)
                                         {
@@ -574,11 +575,5 @@ namespace FileParser
             column.CellTemplate = new DataGridViewTextBoxCell(); //тип нашей колонки
         }
     }
-
-
-
-
-
-
 
 }
