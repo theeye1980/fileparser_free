@@ -1,0 +1,293 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|C:\\Users\\kosarev\\source\\repos\\fileparser_free\\fileparser\\dedicclasses\\networkhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|solutionrelative:fileparser\\dedicclasses\\networkhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|c:\\users\\kosarev\\source\\repos\\fileparser_free\\fileparser\\forms\\folder_reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|solutionrelative:fileparser\\forms\\folder_reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|c:\\users\\kosarev\\source\\repos\\fileparser_free\\fileparser\\forms\\folder_reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|solutionrelative:fileparser\\forms\\folder_reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|c:\\users\\kosarev\\source\\repos\\fileparser_free\\fileparser\\forms\\foldersearcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|solutionrelative:fileparser\\forms\\foldersearcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|C:\\Users\\kosarev\\source\\repos\\fileparser_free\\fileparser\\forms\\form6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|solutionrelative:fileparser\\forms\\form6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|c:\\users\\kosarev\\source\\repos\\fileparser_free\\fileparser\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|solutionrelative:fileparser\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|C:\\Users\\kosarev\\source\\repos\\fileparser_free\\fileparser\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|solutionrelative:fileparser\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|C:\\Users\\kosarev\\source\\repos\\fileparser_free\\fileparser\\forms\\about.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|solutionrelative:fileparser\\forms\\about.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|C:\\Users\\kosarev\\source\\repos\\fileparser_free\\fileparser\\forms\\frmuniversalxmlparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|solutionrelative:fileparser\\forms\\frmuniversalxmlparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|C:\\Users\\kosarev\\source\\repos\\fileparser_free\\fileparser\\forms\\urlextractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|solutionrelative:fileparser\\forms\\urlextractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|C:\\Users\\kosarev\\source\\repos\\fileparser_free\\fileparser\\forms\\about.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|solutionrelative:fileparser\\forms\\about.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|C:\\Users\\kosarev\\source\\repos\\fileparser_free\\fileparser\\dedicclasses\\array_searcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|solutionrelative:fileparser\\dedicclasses\\array_searcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|C:\\Users\\kosarev\\source\\repos\\fileparser_free\\fileparser\\dedicclasses\\async.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|solutionrelative:fileparser\\dedicclasses\\async.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|C:\\Users\\kosarev\\source\\repos\\fileparser_free\\fileparser\\dedicclasses\\filesaver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|solutionrelative:fileparser\\dedicclasses\\filesaver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|C:\\Users\\kosarev\\source\\repos\\fileparser_free\\fileparser\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|solutionrelative:fileparser\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|C:\\Users\\kosarev\\source\\repos\\fileparser_free\\fileparser\\dedicclasses\\cache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|solutionrelative:fileparser\\dedicclasses\\cache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|C:\\Users\\kosarev\\source\\repos\\fileparser_free\\fileparser\\dedicclasses\\converters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AB62244-E516-4AAA-A71B-3C6AD16FC248}|FileParser\\FileParser.csproj|solutionrelative:fileparser\\dedicclasses\\converters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Folder_Reader.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\Forms\\Folder_Reader.cs",
+              "RelativeDocumentMoniker": "FileParser\\Forms\\Folder_Reader.cs",
+              "ToolTip": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\Forms\\Folder_Reader.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "FileParser\\Forms\\Folder_Reader.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T08:21:44.16Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\MainForm.cs",
+              "RelativeDocumentMoniker": "FileParser\\MainForm.cs",
+              "ToolTip": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\MainForm.cs",
+              "RelativeToolTip": "FileParser\\MainForm.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAhwCsAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T07:50:40.322Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "URLExtractor.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\Forms\\URLExtractor.cs",
+              "RelativeDocumentMoniker": "FileParser\\Forms\\URLExtractor.cs",
+              "ToolTip": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\Forms\\URLExtractor.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "FileParser\\Forms\\URLExtractor.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T07:33:23.376Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Form6.cs",
+              "DocumentMoniker": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\Forms\\Form6.cs",
+              "RelativeDocumentMoniker": "FileParser\\Forms\\Form6.cs",
+              "ToolTip": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\Forms\\Form6.cs",
+              "RelativeToolTip": "FileParser\\Forms\\Form6.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T06:34:17.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "frmUniversalXMLParser.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\Forms\\frmUniversalXMLParser.cs",
+              "RelativeDocumentMoniker": "FileParser\\Forms\\frmUniversalXMLParser.cs",
+              "ToolTip": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\Forms\\frmUniversalXMLParser.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "FileParser\\Forms\\frmUniversalXMLParser.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T07:33:26.415Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "About.cs",
+              "DocumentMoniker": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\Forms\\About.cs",
+              "RelativeDocumentMoniker": "FileParser\\Forms\\About.cs",
+              "ToolTip": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\Forms\\About.cs",
+              "RelativeToolTip": "FileParser\\Forms\\About.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T06:40:18.153Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NetworkHelper.cs",
+              "DocumentMoniker": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\DedicClasses\\NetworkHelper.cs",
+              "RelativeDocumentMoniker": "FileParser\\DedicClasses\\NetworkHelper.cs",
+              "ToolTip": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\DedicClasses\\NetworkHelper.cs",
+              "RelativeToolTip": "FileParser\\DedicClasses\\NetworkHelper.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAIA6wDUAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T06:34:43.924Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Folder_Reader.cs",
+              "DocumentMoniker": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\Forms\\Folder_Reader.cs",
+              "RelativeDocumentMoniker": "FileParser\\Forms\\Folder_Reader.cs",
+              "ToolTip": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\Forms\\Folder_Reader.cs",
+              "RelativeToolTip": "FileParser\\Forms\\Folder_Reader.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAIA1wCsAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T08:21:46.834Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FolderSearcher.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\Forms\\FolderSearcher.cs",
+              "RelativeDocumentMoniker": "FileParser\\Forms\\FolderSearcher.cs",
+              "ToolTip": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\Forms\\FolderSearcher.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "FileParser\\Forms\\FolderSearcher.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T08:23:27.992Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\MainForm.cs",
+              "RelativeDocumentMoniker": "FileParser\\MainForm.cs",
+              "ToolTip": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "FileParser\\MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T07:50:38.638Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "About.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\Forms\\About.cs",
+              "RelativeDocumentMoniker": "FileParser\\Forms\\About.cs",
+              "ToolTip": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\Forms\\About.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "FileParser\\Forms\\About.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T06:39:52.862Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "array_searcher.cs",
+              "DocumentMoniker": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\DedicClasses\\array_searcher.cs",
+              "RelativeDocumentMoniker": "FileParser\\DedicClasses\\array_searcher.cs",
+              "ToolTip": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\DedicClasses\\array_searcher.cs",
+              "RelativeToolTip": "FileParser\\DedicClasses\\array_searcher.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T06:34:27.86Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "FileSaver.cs",
+              "DocumentMoniker": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\DedicClasses\\FileSaver.cs",
+              "RelativeDocumentMoniker": "FileParser\\DedicClasses\\FileSaver.cs",
+              "ToolTip": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\DedicClasses\\FileSaver.cs",
+              "RelativeToolTip": "FileParser\\DedicClasses\\FileSaver.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T06:34:00.862Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\Program.cs",
+              "RelativeDocumentMoniker": "FileParser\\Program.cs",
+              "ToolTip": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\Program.cs",
+              "RelativeToolTip": "FileParser\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T06:33:58.263Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "converters.cs",
+              "DocumentMoniker": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\DedicClasses\\converters.cs",
+              "RelativeDocumentMoniker": "FileParser\\DedicClasses\\converters.cs",
+              "ToolTip": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\DedicClasses\\converters.cs",
+              "RelativeToolTip": "FileParser\\DedicClasses\\converters.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T06:33:47.239Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Cache.cs",
+              "DocumentMoniker": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\DedicClasses\\Cache.cs",
+              "RelativeDocumentMoniker": "FileParser\\DedicClasses\\Cache.cs",
+              "ToolTip": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\DedicClasses\\Cache.cs",
+              "RelativeToolTip": "FileParser\\DedicClasses\\Cache.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T06:33:44.823Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "async.cs",
+              "DocumentMoniker": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\DedicClasses\\async.cs",
+              "RelativeDocumentMoniker": "FileParser\\DedicClasses\\async.cs",
+              "ToolTip": "C:\\Users\\kosarev\\source\\repos\\fileparser_free\\FileParser\\DedicClasses\\async.cs",
+              "RelativeToolTip": "FileParser\\DedicClasses\\async.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T06:33:37.958Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

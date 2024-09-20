@@ -133,6 +133,8 @@ namespace FileParser
 
             this.label3.Text = "Количество найденных файлов: " + result.Length.ToString();
             FolderReader = null;
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)

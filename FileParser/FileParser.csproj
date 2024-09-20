@@ -120,6 +120,7 @@
     <Compile Include="DedicClasses\async.cs" />
     <Compile Include="DedicClasses\Cache.cs" />
     <Compile Include="Class2.cs" />
+    <Compile Include="DedicClasses\NetworkHelper.cs" />
     <Compile Include="DedicClasses\converters.cs" />
     <Compile Include="DedicClasses\FileInfoGetter.cs" />
     <Compile Include="DedicClasses\FileSaver.cs" />

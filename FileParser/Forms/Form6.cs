@@ -28,6 +28,7 @@ namespace FileParser
         DataGridViewColumn column2 = new DataGridViewColumn();
         DataGridViewColumn column3 = new DataGridViewColumn();
         XmlDocument doc = new XmlDocument();
+        NetworkHelper net = new NetworkHelper();
         public Form6()
         {
             InitializeComponent();
@@ -212,6 +213,17 @@ namespace FileParser
                 FileSaver.CSV_writer(Properties.Settings.Default.basepath + @"\yml.csv", goods_add);
                 MessageBox.Show("Файл выгружен по адресу " + Properties.Settings.Default.basepath + @"\yml.csv");
                 button3.Enabled = false; button1.Enabled = false;
+
+                // записываем в лог использование программы
+                // получаем IP
+                string ipaddr = net.GetIPAddress();
+                
+                //получаем имя файла
+                string filename = Path.GetFileName(this.path);
+
+                //стучимся и передаем информацию в лог
+                net.SendGetRequest(ipaddr, filename, "convert_YML");
+
 
             }
             catch

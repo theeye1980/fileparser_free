@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
 using FileParser.DedicClasses;
+using Json.Net;
+using System.IO;
 
 
 
@@ -19,7 +21,7 @@ namespace FileParser
     {
         string out_full_path_name = Properties.Settings.Default.fullpaths_csv;
         string out_name = Properties.Settings.Default.names_csv;
-
+        NetworkHelper net = new NetworkHelper();
         FolderReader FolderReader = new FolderReader();
         public Folder_Reader()
         {
@@ -49,6 +51,18 @@ namespace FileParser
 
             MessageBox.Show("Готово, результат в папке " + Properties.Settings.Default.basepath);
             button3.Visible = true;
+
+
+            // записываем в лог использование программы
+            // получаем IP
+            string ipaddr = net.GetIPAddress();
+
+            //получаем имя файла
+            string filename = Path.GetFileName(targetDirectory);
+
+            //стучимся и передаем информацию в лог
+            net.SendGetRequest(ipaddr, filename, "folder_read");
+
             //Откроем файл с результатом
             //Process.Start(new ProcessStartInfo { FileName = "explorer", Arguments = $"/n,/select,{Properties.Settings.Default.basepath + @"\" + out_full_path_name}" });
             WinActions.OpenRes(Properties.Settings.Default.basepath + @"\" + out_full_path_name);

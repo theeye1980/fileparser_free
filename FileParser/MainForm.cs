@@ -42,7 +42,7 @@ namespace FileParser
         private void button2_Click(object sender, EventArgs e)
         {
             //  Нескомпилированное приложение перестанет работать с 
-            DateTime date1 = new DateTime(2024, 9, 16); 
+            DateTime date1 = new DateTime(2025, 4, 16); 
             var periodNow = DateTime.Now;
             if (periodNow < date1)
             {

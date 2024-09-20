@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FileParser.DedicClasses;
 
 namespace FileParser.Forms
 {
@@ -19,7 +20,10 @@ namespace FileParser.Forms
 
         private void label1_Click(object sender, EventArgs e)
         {
+            NetworkHelper net = new NetworkHelper();
+            string ipaddr = net.GetIPAddress();
 
+            label1.Text = ipaddr;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
